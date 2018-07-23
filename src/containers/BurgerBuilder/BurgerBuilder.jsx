@@ -6,10 +6,10 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
 const INGREDIENTS_PRICE = {
-  salad: 5,
-  cheese: 4,
-  meat: 3,
-  bacon: 7
+  salad: 0,
+  cheese: 0,
+  meat: 0,
+  bacon: 0
 }
 class BurgerBuilder extends Component {
 
@@ -93,11 +93,11 @@ class BurgerBuilder extends Component {
     }
     return(
       <Aux>
-
         <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
           <OrderSummary ingredients={this.state.ingredients}
             purchaseCanceld={this.purchaseCancelHandler}
-            purchaseContinued={this.purchaseContinueHandler} />
+            purchaseContinued={this.purchaseContinueHandler}
+            price={this.state.totalPrice} />
         </Modal>
         <Burger ingredients={this.state.ingredients}/>
         <BuildControls
